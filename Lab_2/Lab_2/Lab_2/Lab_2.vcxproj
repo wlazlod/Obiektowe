@@ -147,6 +147,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Lab2.cpp" />
+    <ClCompile Include="Lab2div.cpp" />
+    <ClCompile Include="Pojemnik.cpp" />
+    <ClCompile Include="Wektor2D.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Pojemnik.h" />
+    <ClInclude Include="Wektor2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

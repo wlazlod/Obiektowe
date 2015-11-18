@@ -1,3 +1,4 @@
+/*
 #include<iostream>
 #include<iomanip> //manipulowanie wydrukiem
 
@@ -8,7 +9,8 @@ const double MAX_VAL = 100;
 // deklaracja klasy
 class Wektor2D
 {
-	friend void operator<<(ostream &o, const Wektor2D &w);
+	friend ostream& operator<<(ostream &o, const Wektor2D &w);
+	friend bool operator > (const Wektor2D &w1, const Wektor2D &w2);
 public:
 	// konstruktor domyœlny
 	Wektor2D() :x(0), y(0) { }
@@ -40,7 +42,7 @@ private:
 	double y;
 };
 
-void operator<<(ostream& o, const Wektor2D& w)
+ostream& operator<<(ostream& o, const Wektor2D& w)
 {
 	o.setf(ios::fixed);
 	o << "wektor: [";
@@ -50,19 +52,14 @@ void operator<<(ostream& o, const Wektor2D& w)
 	o.precision(4);
 	o.width(7);
 	o << w.y << "]" << endl;
+	return o;
 }
 
-void operator<<(ostream& o, const Wektor2D& w)
+bool operator > (const Wektor2D &w1, const Wektor2D &w2)
 {
-	o.setf(ios::fixed);
-	o << "wektor: [";
-	o.precision(3);
-	o.width(6);
-	o << w.x << ",";
-	o.precision(4);
-	o.width(7);
-	o << w.y << "]" << endl;
+	return ((w1.x*w1.x + w1.y*w1.y)>(w2.x*w2.x + w2.y*w2.y));
 }
+
 // -------------------------------------------------------------
 // deklaracja klasy
 class Pojemnik
@@ -93,6 +90,12 @@ public:
 		for (int i = 0; i < msize; i++) { Sum+= mdata[i]; }
 		return Sum;
 	}
+	Wektor2D Max()
+	{
+		Wektor2D MaxW=mdata[0];
+		for (int i = 0; i < msize; i++) { if (mdata[i] > MaxW) MaxW = mdata[i]; }
+		return MaxW;
+	}
 
 private:
 	Wektor2D *mdata;
@@ -108,11 +111,13 @@ void main(void) {
 	poj.Dodaj(v2);
 	poj.Dodaj(Wektor2D(3, 2));
 	poj.Dodaj(Wektor2D(8, 4));
+	poj.Dodaj(Wektor2D(120, 5));
 	poj.DrukujWszystko();
 	cout << "Suma: " << poj.Suma();
 	cout << v1;
 	cout << v1 << v2;
+	cout << "Max: " <<poj.Max();
 }
-
+*/
 
 
